@@ -104,124 +104,279 @@ CREATE TABLE Table_Name (
 ```
 
 **Question 1**
---
--- Paste Question 1 here
+Write a SQL query to Add a new column State as text in the Student_details table.
 
-```sql
--- Paste your SQL code below for Question 1
-```
+Sample table: Student_details
+
+ cid              name             type   notnull     dflt_value  pk
+---------------  ---------------  -----  ----------  ----------  ----------
+0                RollNo           int    0                       1
+1                Name             VARCH  1                       0
+2                Gender           TEXT   1                       0
+3                Subject          VARCH  0                       0
+4                MARKS            INT (  0                       0
+For example:
+
+Test	Result
+pragma table_info('Student_details');
+cid         name        type        notnull     dflt_value  pk
+----------  ----------  ----------  ----------  ----------  ----------
+0           RollNo      int         0                       1
+1           Name        VARCHAR(10  1                       0
+2           Gender      TEXT        1                       0
+3           Subject     VARCHAR(30  0                       0
+4           MARKS       INT (3)     0                       0
+5           State       TEXT        0                       0
+
+Answer:(penalty regime: 0 %)
+ALTER TABLE  Student_details ADD COLUMN State TEXT;
 
 **Output:**
 
-![Output1](output.png)
+![Screenshot (89)](https://github.com/user-attachments/assets/b1df5810-0e19-4ab9-a5f2-6dac88b9a064)
 
 **Question 2**
----
--- Paste Question 2 here
+Insert the below data into the Employee table, allowing the Department and Salary columns to take their default values.
 
-```sql
--- Paste your SQL code below for Question 2
-```
+EmployeeID  Name         Position
+----------  -----------  ----------
+4           Emily White  Analyst
+
+Note: The Department and Salary columns will use their default values.    
+For example:
+
+Test	Result
+SELECT EmployeeID, Name, Position 
+FROM Employee;
+EmployeeID  Name         Position
+----------  -----------  ----------
+4           Emily White  Analyst
+
+Answer:(penalty regime: 0 %)
+INSERT INTO Employee(EmployeeID,Name,Position)
+VALUES('4','Emily White','Analyst');
 
 **Output:**
 
-![Output2](output.png)
+![Screenshot (90)](https://github.com/user-attachments/assets/5a14486e-98e3-4233-98a7-86192f305325)
+
 
 **Question 3**
----
--- Paste Question 3 here
+Insert all employees from Former_employees into Employee
 
-```sql
--- Paste your SQL code below for Question 3
-```
+Table attributes are EmployeeID, Name, Department, Salary
+
+For example:
+
+Test	Result
+select * from Employee;
+EmployeeID  Name        Department  Salary
+----------  ----------  ----------  ----------
+201         John Doe    HR          50000
+202         Jane Smith  Engineerin  75000
+203         Emily Davi  Marketing   60000
+
+Answer:(penalty regime: 0 %)
+INSERT into Employee(EmployeeID,Name,Department,Salary)
+SELECT EmployeeID,Name,Department,Salary FROM Former_employees;
 
 **Output:**
 
-![Output3](output.png)
+![Screenshot (91)](https://github.com/user-attachments/assets/2a832515-67c3-478a-8c24-bbd618e05942)
+
 
 **Question 4**
----
--- Paste Question 4 here
+Create a table named Customers with the following columns:
 
-```sql
--- Paste your SQL code below for Question 4
-```
+CustomerID as INTEGER
+Name as TEXT
+Email as TEXT
+JoinDate as DATETIME
+For example:
+
+Test	Result
+pragma table_info('Customers');
+cid         name        type        notnull     dflt_value  pk
+----------  ----------  ----------  ----------  ----------  ----------
+0           CustomerID  INTEGER     0                       0
+1           Name        TEXT        0                       0
+2           Email       TEXT        0                       0
+3           JoinDate    DATETIME    0                       0
+
+Answer:(penalty regime: 0 %)
+CREATE TABLE Customers(
+CustomerID  INTEGER,
+Name  TEXT,
+Email  TEXT,
+JoinDate  DATETIME
+);
 
 **Output:**
 
-![Output4](output.png)
+![Screenshot (92)](https://github.com/user-attachments/assets/44370246-f7ba-4d0a-b66c-295ad6320ca0)
 
 **Question 5**
----
--- Paste Question 5 here
+Write an SQL query to add a new column email of type TEXT to the Student_details table, and ensure that this column cannot contain NULL values and make default value as 'Invalid'
 
-```sql
--- Paste your SQL code below for Question 5
-```
+For example:
+
+Test	Result
+INSERT INTO Student_details (RollNo, Name, Gender, Subject, email) 
+VALUES (1, 'John Doe', 'M', 'Math', 'john@example.com');
+select * from Student_details;
+RollN  Name   Gen  Subject     email
+-----  -----  ---  ----------  ----------------
+1      John   M    Math        john@example.com
+
+Answer:(penalty regime: 0 %)
+ALTER TABLE Student_details 
+ADD COLUMN email TEXT  not NULL default'Invalid';
 
 **Output:**
 
-![Output5](output.png)
+![Screenshot (93)](https://github.com/user-attachments/assets/3a43d180-236e-4695-9a2e-e72237c54585)
 
 **Question 6**
----
--- Paste Question 6 here
+Create a table named Invoices with the following constraints:
+InvoiceID as INTEGER should be the primary key.
+InvoiceDate as DATE.
+Amount as REAL should be greater than 0.
+DueDate as DATE should be greater than the InvoiceDate.
+OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
+For example:
 
-```sql
--- Paste your SQL code below for Question 6
-```
+Test	Result
+INSERT INTO Orders (OrderID, OrderDate, CustomerID) VALUES (1, '2024-08-01', 1);
+INSERT INTO Invoices (InvoiceID, InvoiceDate, Amount, DueDate, OrderID) VALUES (1, '2024-08-01', 100.0, '2024-09-01', 1);
+SELECT * FROM Invoices;
+InvoiceID   InvoiceDate  Amount      DueDate     OrderID
+----------  -----------  ----------  ----------  ----------
+1           2024-08-01   100.0       2024-09-01  1
 
+Answer:(penalty regime: 0 %)
+CREATE TABLE Invoices(
+InvoiceID INTEGER primary key,
+InvoiceDate DATE,
+Amount REAL CHECK(Amount>=0),
+DueDate DATE CHECK(DueDate>=InvoiceDate),
+OrderID INTEGER,
+foreign key (OrderID) references Orders(OrderID)
+);
 **Output:**
 
-![Output6](output.png)
+![Screenshot (94)](https://github.com/user-attachments/assets/bfc153ea-4b96-4576-8021-db5521c03982)
+
 
 **Question 7**
----
--- Paste Question 7 here
+Create a table named Products with the following constraints:
 
-```sql
--- Paste your SQL code below for Question 7
-```
+ProductID should be the primary key.
+ProductName should be NOT NULL.
+Price is of real datatype and should be greater than 0.
+Stock is of integer datatype and should be greater than or equal to 0.
+For example:
+
+Test	Result
+INSERT INTO Products
+VALUES (1, NULL,0,5);
+Error: NOT NULL constraint failed: Products.ProductName
+
+Answer:(penalty regime: 0 %)
+CREATE TABLE Products(
+ProductID INTEGER primary key,
+ProductName not NULL,
+Price REAL CHECK (Price>0),
+Stock INTEGER CHECK (Stock>=0)
+);
 
 **Output:**
+![Screenshot (95)](https://github.com/user-attachments/assets/02c5722a-7c1f-432a-9583-094600da53e3)
 
-![Output7](output.png)
 
 **Question 8**
----
--- Paste Question 8 here
+Create a table named Orders with the following constraints:
+OrderID as INTEGER should be the primary key.
+OrderDate as DATE should be not NULL.
+CustomerID as INTEGER should be a foreign key referencing Customers(CustomerID).
+For example:
 
-```sql
--- Paste your SQL code below for Question 8
-```
+Test	Result
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email) VALUES (1, 'Alice', 'Johnson', 'alice.johnson@example.com');
+INSERT INTO Orders (OrderID, OrderDate, CustomerID) VALUES (1, '2024-08-01', 1);
+select * from orders;
+OrderID     OrderDate   CustomerID
+----------  ----------  ----------
+1           2024-08-01  1
+
+Answer:(penalty regime: 0 %)
+CREATE TABLE Orders(
+OrderID INTEGER primary key,
+OrderDate DATE not NULL,
+CustomerID INTEGER,
+foreign key (CustomerID) references Customers(CustomerID)
+);
 
 **Output:**
 
-![Output8](output.png)
+![Screenshot (96)](https://github.com/user-attachments/assets/6da774c1-b3b3-43f6-92a3-b0435421050f)
+
 
 **Question 9**
----
--- Paste Question 9 here
+Create a table named Department with the following constraints:
+DepartmentID as INTEGER should be the primary key.
+DepartmentName as TEXT should be unique and not NULL.
+Location as TEXT.
+For example:
 
-```sql
--- Paste your SQL code below for Question 9
-```
+Test	Result
+INSERT INTO Department (DepartmentID, DepartmentName, Location) VALUES (1, 'Human Resources', 'New York');
+select * from Department;
+DepartmentID  DepartmentName   Location
+------------  ---------------  ----------
+1             Human Resources  New York
+
+Answer:(penalty regime: 0 %)
+CREATE TABLE Department(
+DepartmentID INTEGER primary key,
+DepartmentName TEXT UNIQUE  not NULL,
+Location TEXT
+);
 
 **Output:**
 
-![Output9](output.png)
+![Screenshot (97)](https://github.com/user-attachments/assets/797b889f-8fe2-408b-9284-2596bcf0c619)
+
 
 **Question 10**
----
--- Paste Question 10 here
+In the Books table, insert a record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
 
-```sql
--- Paste your SQL code below for Question 10
-```
+ISBN             Title                      Author           Publisher   Year
+---------------  -------------------------  ---------------  ----------  ----------
+978-1234567890   Introduction to AI         John Doe
+978-9876543210   Deep Learning              Jane Doe         TechPress   2022
+978-1122334455   Cybersecurity Essentials   Alice Smith                  2021
+For example:
+
+Test	Result
+SELECT * FROM Books;
+ISBN             Title                      Author           Publisher   Year
+---------------  -------------------------  ---------------  ----------  ----------
+978-1234567890   Introduction to AI         John Doe
+978-9876543210   Deep Learning              Jane Doe         TechPress   2022
+978-1122334455   Cybersecurity Essentials   Alice Smith                  2021
+
+Answer:(penalty regime: 0 %)
+INSERT INTO Books(ISBN, Title, Author, Publisher, Year)
+VALUES('978-1234567890', 'Introduction to AI', 'John Doe', null, null);
+INSERT INTO Books(ISBN, Title, Author, Publisher, Year)
+VALUES('978-9876543210', 'Deep Learning', 'Jane Doe', 'TechPress', '2022');
+INSERT INTO Books(ISBN, Title, Author, Publisher, Year)
+VALUES('978-1122334455', 'Cybersecurity Essentials', 'Alice Smith', null, 2021);
 
 **Output:**
 
-![Output10](output.png)
+![Screenshot (98)](https://github.com/user-attachments/assets/61f372c4-534d-464c-a325-2f12775804a8)
+
 
 
 ## RESULT
