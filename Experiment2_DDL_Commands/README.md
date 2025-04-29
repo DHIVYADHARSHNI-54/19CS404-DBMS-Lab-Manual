@@ -104,6 +104,7 @@ CREATE TABLE Table_Name (
 ```
 
 **Question 1**
+
 Write a SQL query to Add a new column State as text in the Student_details table.
 
 Sample table: Student_details
@@ -114,7 +115,8 @@ Sample table: Student_details
 1                Name             VARCH  1                       0
 2                Gender           TEXT   1                       0
 3                Subject          VARCH  0                       0
-4                MARKS            INT (  0                       0
+4                MARKS            INT   0                       0
+
 For example:
 
 Test	Result
@@ -129,6 +131,7 @@ cid         name        type        notnull     dflt_value  pk
 5           State       TEXT        0                       0
 
 Answer:(penalty regime: 0 %)
+
 ALTER TABLE  Student_details ADD COLUMN State TEXT;
 
 **Output:**
@@ -136,6 +139,7 @@ ALTER TABLE  Student_details ADD COLUMN State TEXT;
 ![Screenshot (89)](https://github.com/user-attachments/assets/b1df5810-0e19-4ab9-a5f2-6dac88b9a064)
 
 **Question 2**
+
 Insert the below data into the Employee table, allowing the Department and Salary columns to take their default values.
 
 EmployeeID  Name         Position
@@ -145,7 +149,7 @@ EmployeeID  Name         Position
 Note: The Department and Salary columns will use their default values.    
 For example:
 
-Test	Result
+Test	Result:
 SELECT EmployeeID, Name, Position 
 FROM Employee;
 EmployeeID  Name         Position
