@@ -120,7 +120,9 @@ Sample table: Student_details
 For example:
 
 Test	Result
+
 pragma table_info('Student_details');
+
 cid         name        type        notnull     dflt_value  pk
 ----------  ----------  ----------  ----------  ----------  ----------
 0           RollNo      int         0                       1
@@ -146,10 +148,12 @@ EmployeeID  Name         Position
 ----------  -----------  ----------
 4           Emily White  Analyst
 
-Note: The Department and Salary columns will use their default values.    
+Note: The Department and Salary columns will use their default values.
+
 For example:
 
 Test	Result:
+
 SELECT EmployeeID, Name, Position 
 FROM Employee;
 EmployeeID  Name         Position
@@ -173,6 +177,7 @@ Table attributes are EmployeeID, Name, Department, Salary
 For example:
 
 Test	Result
+
 select * from Employee;
 EmployeeID  Name        Department  Salary
 ----------  ----------  ----------  ----------
@@ -196,9 +201,11 @@ CustomerID as INTEGER
 Name as TEXT
 Email as TEXT
 JoinDate as DATETIME
+
 For example:
 
 Test	Result
+
 pragma table_info('Customers');
 cid         name        type        notnull     dflt_value  pk
 ----------  ----------  ----------  ----------  ----------  ----------
@@ -225,6 +232,7 @@ Write an SQL query to add a new column email of type TEXT to the Student_details
 For example:
 
 Test	Result
+
 INSERT INTO Student_details (RollNo, Name, Gender, Subject, email) 
 VALUES (1, 'John Doe', 'M', 'Math', 'john@example.com');
 select * from Student_details;
@@ -247,9 +255,11 @@ InvoiceDate as DATE.
 Amount as REAL should be greater than 0.
 DueDate as DATE should be greater than the InvoiceDate.
 OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
+
 For example:
 
 Test	Result
+
 INSERT INTO Orders (OrderID, OrderDate, CustomerID) VALUES (1, '2024-08-01', 1);
 INSERT INTO Invoices (InvoiceID, InvoiceDate, Amount, DueDate, OrderID) VALUES (1, '2024-08-01', 100.0, '2024-09-01', 1);
 SELECT * FROM Invoices;
@@ -278,9 +288,11 @@ ProductID should be the primary key.
 ProductName should be NOT NULL.
 Price is of real datatype and should be greater than 0.
 Stock is of integer datatype and should be greater than or equal to 0.
+
 For example:
 
 Test	Result
+
 INSERT INTO Products
 VALUES (1, NULL,0,5);
 Error: NOT NULL constraint failed: Products.ProductName
@@ -302,9 +314,11 @@ Create a table named Orders with the following constraints:
 OrderID as INTEGER should be the primary key.
 OrderDate as DATE should be not NULL.
 CustomerID as INTEGER should be a foreign key referencing Customers(CustomerID).
+
 For example:
 
 Test	Result
+
 INSERT INTO Customers (CustomerID, FirstName, LastName, Email) VALUES (1, 'Alice', 'Johnson', 'alice.johnson@example.com');
 INSERT INTO Orders (OrderID, OrderDate, CustomerID) VALUES (1, '2024-08-01', 1);
 select * from orders;
@@ -330,9 +344,11 @@ Create a table named Department with the following constraints:
 DepartmentID as INTEGER should be the primary key.
 DepartmentName as TEXT should be unique and not NULL.
 Location as TEXT.
+
 For example:
 
 Test	Result
+
 INSERT INTO Department (DepartmentID, DepartmentName, Location) VALUES (1, 'Human Resources', 'New York');
 select * from Department;
 DepartmentID  DepartmentName   Location
