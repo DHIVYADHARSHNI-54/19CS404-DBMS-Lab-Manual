@@ -161,6 +161,7 @@ EmployeeID  Name         Position
 4           Emily White  Analyst
 
 Answer:(penalty regime: 0 %)
+
 INSERT INTO Employee(EmployeeID,Name,Position)
 VALUES('4','Emily White','Analyst');
 
@@ -186,6 +187,7 @@ EmployeeID  Name        Department  Salary
 203         Emily Davi  Marketing   60000
 
 Answer:(penalty regime: 0 %)
+
 INSERT into Employee(EmployeeID,Name,Department,Salary)
 SELECT EmployeeID,Name,Department,Salary FROM Former_employees;
 
@@ -215,6 +217,7 @@ cid         name        type        notnull     dflt_value  pk
 3           JoinDate    DATETIME    0                       0
 
 Answer:(penalty regime: 0 %)
+
 CREATE TABLE Customers(
 CustomerID  INTEGER,
 Name  TEXT,
