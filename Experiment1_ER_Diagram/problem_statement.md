@@ -33,8 +33,10 @@ Design a database to manage students, instructors, programs, courses, and studen
 5. Add prerequisites as a special link between courses.  
 6. Draw the ER diagram clearly showing all entities, relationships, and attributes.
 
-# ER Diagram Submission - Student Name
+# ER Diagram Submission 
+
 NAME - DHIVYA DHARSHNI.B
+
 REGISTER NUMBER - 212223060054
 
 ## Scenario Chosen:
