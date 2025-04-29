@@ -231,7 +231,7 @@ Write an SQL query to add a new column email of type TEXT to the Student_details
 
 For example:
 
-Test	Result
+Test Result
 
 INSERT INTO Student_details (RollNo, Name, Gender, Subject, email) 
 VALUES (1, 'John Doe', 'M', 'Math', 'john@example.com');
@@ -258,7 +258,7 @@ OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
 
 For example:
 
-Test	Result
+Test Result
 
 INSERT INTO Orders (OrderID, OrderDate, CustomerID) VALUES (1, '2024-08-01', 1);
 INSERT INTO Invoices (InvoiceID, InvoiceDate, Amount, DueDate, OrderID) VALUES (1, '2024-08-01', 100.0, '2024-09-01', 1);
@@ -268,6 +268,7 @@ InvoiceID   InvoiceDate  Amount      DueDate     OrderID
 1           2024-08-01   100.0       2024-09-01  1
 
 Answer:(penalty regime: 0 %)
+
 CREATE TABLE Invoices(
 InvoiceID INTEGER primary key,
 InvoiceDate DATE,
@@ -295,9 +296,11 @@ Test	Result
 
 INSERT INTO Products
 VALUES (1, NULL,0,5);
+
 Error: NOT NULL constraint failed: Products.ProductName
 
 Answer:(penalty regime: 0 %)
+
 CREATE TABLE Products(
 ProductID INTEGER primary key,
 ProductName not NULL,
@@ -317,7 +320,7 @@ CustomerID as INTEGER should be a foreign key referencing Customers(CustomerID).
 
 For example:
 
-Test	Result
+Test Result
 
 INSERT INTO Customers (CustomerID, FirstName, LastName, Email) VALUES (1, 'Alice', 'Johnson', 'alice.johnson@example.com');
 INSERT INTO Orders (OrderID, OrderDate, CustomerID) VALUES (1, '2024-08-01', 1);
@@ -327,6 +330,7 @@ OrderID     OrderDate   CustomerID
 1           2024-08-01  1
 
 Answer:(penalty regime: 0 %)
+
 CREATE TABLE Orders(
 OrderID INTEGER primary key,
 OrderDate DATE not NULL,
@@ -356,6 +360,7 @@ DepartmentID  DepartmentName   Location
 1             Human Resources  New York
 
 Answer:(penalty regime: 0 %)
+
 CREATE TABLE Department(
 DepartmentID INTEGER primary key,
 DepartmentName TEXT UNIQUE  not NULL,
@@ -378,7 +383,9 @@ ISBN             Title                      Author           Publisher   Year
 For example:
 
 Test	Result
+
 SELECT * FROM Books;
+
 ISBN             Title                      Author           Publisher   Year
 ---------------  -------------------------  ---------------  ----------  ----------
 978-1234567890   Introduction to AI         John Doe
@@ -386,6 +393,7 @@ ISBN             Title                      Author           Publisher   Year
 978-1122334455   Cybersecurity Essentials   Alice Smith                  2021
 
 Answer:(penalty regime: 0 %)
+
 INSERT INTO Books(ISBN, Title, Author, Publisher, Year)
 VALUES('978-1234567890', 'Introduction to AI', 'John Doe', null, null);
 INSERT INTO Books(ISBN, Title, Author, Publisher, Year)
