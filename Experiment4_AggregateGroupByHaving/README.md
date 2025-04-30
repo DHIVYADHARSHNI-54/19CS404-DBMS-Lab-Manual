@@ -43,7 +43,9 @@ Sample table:Insurance Table
 ![Screenshot (99)](https://github.com/user-attachments/assets/fe94df68-cb38-4201-8d85-3a04b34fafa1)
 
 select InsuranceCompany,count(*) as TotalExpiredPatients
+
 from Insurance
+
 group by InsuranceCompany;
 
 
@@ -60,7 +62,9 @@ Sample tablePrescriptions Table
 ![Screenshot (101)](https://github.com/user-attachments/assets/04f6765b-bc34-4ba2-a545-d088976a3190)
 
 SELECT DoctorID,count(*) as TotalPrescriptions
+
 from Prescriptions
+
 group by DoctorID;
 
 
@@ -89,6 +93,7 @@ Write a SQL query to find the Fruit with the lowest available quantity.
 ![image](https://github.com/user-attachments/assets/ec9e01ee-cb01-4ad2-800d-1816eb3b26c2)
 
 select name as fruit_name , min(inventory) as lowest_quantity
+
 from fruits;
 
 **Output:**
@@ -107,7 +112,9 @@ Note: Inventory attribute contains amount of fruits
 ![image](https://github.com/user-attachments/assets/fecec400-4e63-44ec-a54a-d0c5e0dfc04f)
 
 select sum(inventory) as total_available_amount
+
 from fruits
+
 where price>0.5;
 
 **Output:**
@@ -139,7 +146,9 @@ Write a SQL query to determine the number of customers who received at least one
 ![image](https://github.com/user-attachments/assets/c413d6c9-76f1-4133-9406-5e8925e4c2b0)
 
 SELECT COUNT(customer_id) AS COUNT
+
 FROM customer
+
 where grade is not null;
 
 **Output:**
@@ -156,8 +165,11 @@ Write the SQL query that accomplishes the selection of total cost of all product
 ![image](https://github.com/user-attachments/assets/f0ed5434-0a3e-4c0b-9a95-3a6de1265359)
 
 select category_id,sum(price) as Total_Cost
+
 from products
+
 group by category_id
+
 having Total_Cost>50;
 
 
@@ -175,6 +187,7 @@ Write a SQL query to find the difference between the maximum and minimum price o
 ![image](https://github.com/user-attachments/assets/50b4425e-f1e0-46a3-8042-683c97701287)
 
 select (max(price)-min(price)) as price_diff
+
 from fruits;
 
 
@@ -192,7 +205,9 @@ Write a SQL query to find the average length of names for people living in Chenn
 ![image](https://github.com/user-attachments/assets/b2734a29-fd4a-42c0-b5bc-b0546b9db332)
 
 select avg(length(name)) as avg_name_length
+
 from customer
+
 where city like '%Chennai%';
 
 **Output:**
